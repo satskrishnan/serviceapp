@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 public class ServiceappApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ServiceappApplication.class, args);
+    SpringApplication.run(ServiceappApplication.class);
   }
 
   /* echo sathish | http :8765/uppercase */
