@@ -1,12 +1,17 @@
 package com.home.digital;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SpringBootTest
 class CloudFunctionTest {
 
-  private final ServiceappApplication functions = new ServiceappApplication();
+  @Autowired private ServiceFunctions functions;
+
+  @Autowired private Config config;
 
   @Test
   public void testUppercase() {
@@ -17,6 +22,7 @@ class CloudFunctionTest {
   @Test
   public void testLowercase() {
     String output = this.functions.lowercase().apply("SATHISH");
-    assertThat(output).isEqualTo("hello:sathish");
+    String welcomeText = this.config.getWelcometext();
+    assertThat(output).isEqualTo(welcomeText + ":sathish");
   }
 }

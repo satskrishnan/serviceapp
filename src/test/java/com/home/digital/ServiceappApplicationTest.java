@@ -22,7 +22,8 @@ class ServiceappApplicationTest {
   public void checkStringUppercase() {
     assertThat(
             this.testRestTemplate.getForObject(
-                "http://localhost:" + port + "/uppercase/sathish", String.class))
+                "http://localhost:" + port + "/serviceapp/uppercase/sathish",
+                String.class))
         .isEqualTo("SATHISH");
   }
 }

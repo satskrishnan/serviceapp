@@ -32,6 +32,11 @@
             <version>3.0.7.RELEASE</version>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
@@ -73,6 +78,15 @@
                     <to>
                         <image>docker.io/sathishkr/serviceapp</image>
                     </to>
+                    <container>
+                        <jvmFlags>
+                            <jvmFlag>-Djava.security.egd=file:/dev/./urandom</jvmFlag>
+                        </jvmFlags>
+                        <labels>
+                            <name>serviceapp</name>
+                        </labels>
+                        <format>OCI</format>
+                    </container>
                 </configuration>
                 <executions>
                     <execution>
